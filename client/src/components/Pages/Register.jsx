@@ -1,66 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { createUser } from "../actions/user";
-import Alert from "./routering/Alert";
+import { createUser } from "../../actions/user";
 import { Redirect } from "react-router";
-import Reg_img from "./assets/undraw_super_thank_you_obwk.png";
+import Reg_img from "../assets/undraw_super_thank_you_obwk.png";
 import { BiArrowBack } from "react-icons/bi";
-import Button from "@material-ui/core/Button";
-import { withStyles } from "@material-ui/core/styles";
+import AlertM from "../routering/Alert";
+import { CustomField, CustomButton, Form, CustomImage } from "../commonComponents";
 
-const ColorButton = withStyles((theme) => ({
-  root: {
-    color: "#ffffff",
-    backgroundColor: "#322f3d",
-    margin: "1vh",
-    width: "23vh",
-    height: "4.5vh",
-    alignSelf: "center",
-    fontSize: "1.7vh",
-    "&:hover": {
-      backgroundColor: "#6f6b7c",
-    },
-  },
-}))(Button);
-
-const RegisterForm = styled.form`
-  @media (max-width: 450px) {
-    width: auto;
-    margin: 9vh 1vh 0 1vh;
-  }
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  width: 56vh;
-  height: 77vh;
-  background: #ffffff;
-  margin: 9vh auto;
-  border-radius: 1vh;
-  padding: 2.5vh;
-`;
-const TextBox = styled.input`
-  align-self: center;
-  background-color: #ffffff;
-  border-radius: 0.5vh;
-  border: solid 1px #322f3d;
-  padding: 1.1vh 1.3vh;
-  margin: 0.8vh 0;
-  width: 80%;
-  height: 1.5vh;
-  font-size: 2vh;
-`;
-const RegImg = styled.img`
-  @media (max-width: 450px) {
-    height: 30vh;
-  }
-  @media (max-width: 250px) {
-    height: 15vh;
-  }
-  align-self: center;
-  margin: 0.5vh;
-  height: 40vh;
-`;
 const BackBtn = styled.button`
   &:hover {
     color: #cc4c43;
@@ -120,10 +67,10 @@ class Register extends Component {
 
   render() {
     if (this.props.isAuthenticated) {
-      return <Redirect to={`/todolist`} />;
+      return <Redirect to={`/dashboard`} />;
     } else
       return (
-        <RegisterForm onSubmit={(e) => this.onSubmit(e)}>
+        <Form onSubmit={(e) => this.onSubmit(e)}>
           <RegDiv>
             {" "}
             <BackBtn
@@ -136,8 +83,11 @@ class Register extends Component {
             <Title>Register</Title>{" "}
           </RegDiv>
 
-          <RegImg alt="regimg.png" src={Reg_img} />
-          <TextBox
+          <CustomImage alt="regimg.png" src={Reg_img} />
+          <CustomField
+            id="outlined-basic" 
+            label="Full name"
+            variant="outlined" 
             type="name"
             placeholder="Full name"
             name="username"
@@ -145,7 +95,10 @@ class Register extends Component {
             onChange={(e) => this.onChange(e)}
             required
           />
-          <TextBox
+          <CustomField
+            id="outlined-basic" 
+            label="Email"
+            variant="outlined" 
             type="email"
             placeholder="Email Address"
             name="email"
@@ -153,7 +106,10 @@ class Register extends Component {
             onChange={(e) => this.onChange(e)}
             required
           />
-          <TextBox
+          <CustomField
+            id="outlined-basic" 
+            label="Password"
+            variant="outlined" 
             type="password"
             placeholder="Password"
             name="password"
@@ -162,9 +118,9 @@ class Register extends Component {
             onChange={(e) => this.onChange(e)}
             required
           />
-          <ColorButton type="submit">Register</ColorButton>
-          <Alert />
-        </RegisterForm>
+          <CustomButton type="submit">Register</CustomButton>
+          <AlertM />
+        </Form>
       );
   }
 }
