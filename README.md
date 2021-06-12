@@ -36,10 +36,10 @@ Products bought from vendor. Fields: Shop Name, Product Details, Quantity, per u
 ### Screen 5:
 
 A Datatable which will these filters. 
-1- Dropdown: Contains all above screens if user selects 1 screen all of their records will be displayed. ( You can suggest better idea for this)
-2- Calendar : Filter records based on Date selected
-3- Min and Max Amount Input Fields: (Not sure about this one)
-4- Single Input Field : Search based on Name and Code 
+- Dropdown: Contains all above screens if user selects 1 screen all of their records will be displayed. ( You can suggest better idea for this)
+- Calendar : Filter records based on Date selected
+- Min and Max Amount Input Fields: (Not sure about this one)
+- Single Input Field : Search based on Name and Code 
 
 
 
