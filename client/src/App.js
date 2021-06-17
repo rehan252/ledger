@@ -6,20 +6,20 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import setAuthToken from "./utils/setAuthToken";
-import { loadUser } from "./actions/auth";
 import Login from "./components/Pages/Login";
-import Register from "./components/Pages/Register";
 import PrivateRoute from "./components/routering/PrivateRoute";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { Dashboard } from "./components/Pages/Dashboard";
+import { LeggerName } from "./components/Pages/LeggerName";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#ffffff",
+      main: "#322f3d",
     },
     secondary: {
-      main: "#ffffff",
+      main: "#6f6b7c",
     },
   },
 });
@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
-    } else store.dispatch(loadUser());
+    }
   }, []);
 
   return (
@@ -38,9 +38,12 @@ function App() {
       <Provider store={store}>
         <Router>
           <Route exact path="/" component={Login} />
-          <Route path="/register" component={Register} />
           <Switch>
-            {/* <PrivateRoute path="/todolist" component={Body} /> */}
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/1" component={LeggerName} />
+            {/* <PrivateRoute path="/2" component={Dashboard} />
+            <PrivateRoute path="/3" component={Dashboard} />
+            <PrivateRoute path="/4" component={Dashboard} /> */}
           </Switch>
         </Router>
       </Provider>

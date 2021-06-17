@@ -1,8 +1,26 @@
+body {
+	background: linear-gradient(-45deg, #33f173, #d33ce7, #23a6d5, #cf23d5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .App {
-  background-color: #322f3d;
   height: 100%;
   width: 100%;
   left: 0;
   top: 0;
   position: fixed;
 }
+
+

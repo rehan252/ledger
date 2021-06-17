@@ -69,10 +69,10 @@ export class Login extends Component {
               <CustomImage alt="loginimg.png" src={login_img} />
               <CustomField 
                 id="outlined-basic" 
-                label="Email"
+                label="Username"
                 variant="outlined"                 
-                type="email"
-                placeholder="Email Address"
+                type="text"
+                placeholder="Username"
                 name="email"
                 value={this.state.email}
                 onChange={(e) => this.onChange(e)}
@@ -90,11 +90,7 @@ export class Login extends Component {
                 required/>
               <BtnContainer>
                 <CustomButton type="submit">Login</CustomButton>
-                <CustomButton onClick={(e) => this.routeChange(`/register`)}>
-                  Register
-                </CustomButton>
               </BtnContainer>
-
               <AlertM />
             </Form>
           ) : (

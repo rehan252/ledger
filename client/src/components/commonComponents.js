@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { TableCell, TableRow, TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
@@ -28,10 +28,51 @@ export const CustomField = withStyles((theme) => ({
   }))(Button);
 
 
+
+  export const CustomTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: "#322f3d",
+      color: "#ffffff",
+    },
+    body: {
+      fontSize: 14,
+      fontWeight: 500,
+    },
+  }))(TableCell);
+  
+  export const CustomTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+      body:{
+        fontSize:14,
+        fontWeight:500
+
+      }
+    },
+  }))(TableRow);
+
   //***********************************
   // Styled components
   //***********************************
 
+
+export const DisplayFlex = styled.div `
+    display:flex;
+    flex-direction: column;
+    margin-left: 20px;
+`  
+export const MainBody = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  width: 95%;
+  border-radius:20px;
+  background: #ffffff;
+  margin: 2% auto;
+  padding-top: 20px;
+`
  export const Form = styled.form`
   @media (max-width: 450px) {
     width: auto;
@@ -44,7 +85,7 @@ export const CustomField = withStyles((theme) => ({
   height: 77vh;
   background: #ffffff;
   margin: 9vh auto;
-  border-radius: 1vh;
+  border-radius: 20px;
   padding: 2.5vh;
 `;
 

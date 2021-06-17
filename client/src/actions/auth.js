@@ -16,7 +16,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await axios.get(url + "/api/auth");
+    const res = await axios.get(url + "/api/token/");
     dispatch({
       type: USER_LOADED,
       payload: res.data,
@@ -38,17 +38,17 @@ export const login = (email, password) => async (dispatch) => {
     },
   };
   // to change data into JSON
-  const body = JSON.stringify({ email, password });
+  const body = JSON.stringify({ username:email, password });
 
   try {
-    const res = await axios.post(url + "/api/auth", body, config);
-
+    const res = await axios.post(url + "/api/token/", body, config);
+    console.log(res.data);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
 
-    dispatch(loadUser());
+    // dispatch(loadUser());
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,

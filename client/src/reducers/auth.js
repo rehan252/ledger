@@ -10,6 +10,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: '',
   user: '',
+  refresh:''
 };
 
 export default function (state = initialState, action) {
@@ -17,12 +18,13 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", payload.token);
+      localStorage.setItem("token", "Bearer " + payload.access);
       return {
         ...state,
-        ...payload,
         isAuthenticated: true,
         usertype: payload.usertype,
+        refresh: "Bearer " + payload.refresh,
+        token:  "Bearer " + payload.access,
       };
     case AUTH_ERROR:
     case LOGIN_FAIL:
