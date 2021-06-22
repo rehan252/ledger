@@ -19,6 +19,7 @@ const Container = styled.div`
     transition: 0.3s;
     font-weight: 500;
     font-size: 25px;
+    text-align: center;
     color:#f3f1f1;
     margin-left: 20px;
     margin-right: 20px;
